@@ -1,0 +1,14 @@
+[Unit]
+Description=production app - 3rd service
+# After=network.target mongod.service
+
+[Service]
+Environment=NODE_ENV=production
+Environment=PORT=3002
+User=root
+ExecStart=/usr/bin/node app.js
+WorkingDirectory=/path/to/node/app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
